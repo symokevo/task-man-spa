@@ -1,0 +1,12 @@
+<%= turbo_frame_tag dom_id(task) do %>
+  <div class="bg-white p-4 rounded shadow flex justify-between items-center">
+    <span class="<%= 'line-through text-gray-400' if task.completed %>">
+      <%= task.title %>
+    </span>
+    <div class="space-x-2">
+      <%= button_to "Toggle", toggle_task_path(task), method: :patch, data: { turbo_stream: true }, class: "text-blue-500" %>
+      <%= link_to "Edit", edit_task_path(task), data: { turbo_frame: dom_id(task) }, class: "text-yellow-500" %>
+      <%= button_to "Delete", task_path(task), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "text-red-500" %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<h1 class="text-2xl font-bold mb-4">Tasks</h1>
+<div data-controller="task">
+  <%= turbo_frame_tag "new_task" do %>
+    <%= render "form", task: Task.new %>
+  <% end %>
+
+  <%= turbo_stream_from "tasks" %>
+
+  <div id="tasks" class="space-y-4 mt-4">
+    <%= render @tasks %>
+  </div>
+</div>
