@@ -1,12 +1,20 @@
-<h1 class="text-2xl font-bold mb-4">Tasks</h1>
-<div data-controller="task">
-  <%= turbo_frame_tag "new_task" do %>
-    <%= render "form", task: Task.new %>
-  <% end %>
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+  <h1 class="text-2xl font-bold mb-4">Tasks</h1>
+  <div data-controller="task">
+    <%= turbo_frame_tag "new_task" do %>
+      <%= render "form", task: Task.new %>
+    <% end %>
 
-  <%= turbo_stream_from "tasks" %>
+    <%= turbo_stream_from "tasks" %>
 
-  <div id="tasks" class="space-y-4 mt-4">
-    <%= render @tasks %>
+    <div id="tasks" class="space-y-4 mt-4">
+      <%= render @tasks %>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to "Check on our posts here", posts_path, class: " mt-4 text-2"%>
   </div>
 </div>
+
+

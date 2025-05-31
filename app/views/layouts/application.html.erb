@@ -22,7 +22,9 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="min-h-screen">
+    <div class="max-w-[--your-max-width] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <%= yield %>
+    </div>
   </body>
 </html>
